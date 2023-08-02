@@ -72,7 +72,9 @@ namespace Tests
 
         [Fact]
         public void ShouldProject() {
-            Assert.True(false);
+            var ids = stadiums.Select(x => new { x.Id }).ToList();
+
+            Assert.True(ids[0].Id == 1);
         }
 
         /*
