@@ -137,23 +137,5 @@ namespace Tests
             Assert.Equal(new { country = "URU", sum = 1 }, aggregated[6]);
             Assert.Equal(new { country = "ARG", sum = 1 }, aggregated[7]);
         }
-
-
-        /*
-         * Join Operators
-Projection Operations
-Sorting Operators
-Grouping Operators
-Conversions
-Concatenation
-Aggregation
-Quantifier Operations
-Partition Operations
-Generation Operations
-Set Operations
-Equality
-Element Operators
-         * 
-         */
     }
 }
