@@ -1,7 +1,16 @@
+using Xunit.Abstractions;
+
 namespace Tests
 {
     public class LinqBasicOperationsTest
     {
+        private readonly ITestOutputHelper output;
+
+        public LinqBasicOperationsTest(ITestOutputHelper testOutputHelper)
+        {
+            output = testOutputHelper;
+        }
+
         public record Stadium
         {
             public int Id { get; init; }
@@ -87,8 +96,8 @@ namespace Tests
         {
             var projected = stadiums.Select(x => x.Colors).ToList();
             Assert.Equal(13, projected.Count);
-            Assert.Equal(new List<string>() { }, projected[0]);
-            Assert.Equal(new List<string>() { "Blue", "Garnet" }, projected[1]);
+            Assert.Equal(new List<string>() { }, projected[0]); // No conors for wembley
+            Assert.Equal(new List<string>() { "Blue", "Garnet" }, projected[1]); // Nou camp colors
 
             var flat = stadiums.SelectMany(x => x.Colors).ToList();
 
@@ -96,6 +105,39 @@ namespace Tests
             Assert.Equal("Blue", flat.First());
             Assert.Equal(new List<string>() { "Blue", "Garnet", "White", "Yellow", "Black", "Red", "Blue", "Red", "Blue", "Yellow", "Red", "White" }, flat);
         }
+
+        [Fact]
+        public void Sort()
+        {
+            var sorted = stadiums.OrderBy(x => x.Team).ToList();
+            Assert.Equal("Arsenal", sorted.First().Team);
+
+            var sortedDesc = stadiums.OrderByDescending(x => x.Name).ToList();
+            Assert.Equal("Wembley", sortedDesc.First().Name);
+        }
+
+        [Fact]
+        public void GroupByAndCount()
+        {
+            var aggregated = stadiums.GroupBy(x => x.Country).Select(g => new { country = g.Key, sum = g.Count() }).ToList();
+
+            foreach (var item in aggregated)
+            {
+                output.WriteLine(item.ToString());
+            }
+
+
+            Assert.Equal(8, aggregated.Count);
+            Assert.Equal(new { country = "ENG", sum = 4 }, aggregated.First());
+            Assert.Equal(new { country = "SPA", sum = 2 }, aggregated[1]);
+            Assert.Equal(new { country = "BRA", sum = 1 }, aggregated[2]);
+            Assert.Equal(new { country = "GER", sum = 2 }, aggregated[3]);
+            Assert.Equal(new { country = "ITA", sum = 1 }, aggregated[4]);
+            Assert.Equal(new { country = "MEX", sum = 1 }, aggregated[5]);
+            Assert.Equal(new { country = "URU", sum = 1 }, aggregated[6]);
+            Assert.Equal(new { country = "ARG", sum = 1 }, aggregated[7]);
+        }
+
 
         /*
          * Join Operators
