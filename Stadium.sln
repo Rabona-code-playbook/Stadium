@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StadiumConsole", "StadiumConsole\StadiumConsole.csproj", "{2C2AF4E5-4D3A-48D8-9922-1FB56A304C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StadiumConsole", "StadiumConsole\StadiumConsole.csproj", "{2C2AF4E5-4D3A-48D8-9922-1FB56A304C71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{1EC5D538-77A7-440B-AC53-17A358027C3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{1EC5D538-77A7-440B-AC53-17A358027C3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{6C33599D-4AAC-4401-80D8-7B6344C7B966}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1EC5D538-77A7-440B-AC53-17A358027C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EC5D538-77A7-440B-AC53-17A358027C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EC5D538-77A7-440B-AC53-17A358027C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C33599D-4AAC-4401-80D8-7B6344C7B966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C33599D-4AAC-4401-80D8-7B6344C7B966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C33599D-4AAC-4401-80D8-7B6344C7B966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C33599D-4AAC-4401-80D8-7B6344C7B966}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
